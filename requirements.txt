@@ -8,3 +8,4 @@ pandas
 protobuf
 click==8
 opencv-python-headless
+matplotlib

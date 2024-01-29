@@ -110,8 +110,8 @@ def extractIndividual(frames):
 # OR concatenate those images into 1 image
 def extractCollage(collage):
     # width, height = 300, 400
-    frames_list = []
     images = []
+    frames_list = []
     sec = start
     # get the frame count
     # frame_count=int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))

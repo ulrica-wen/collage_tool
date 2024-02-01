@@ -183,18 +183,9 @@ with col1:
 
         #user selection of start and end times 
         #[WORK] (low priority) Change to manually entering start and end times?
-        start,end = st.slider("Select start and end time", 0, int(durationInSeconds), 
-                              step=1, key="time_slider", disabled=st.session_state.disabled)
+        start,end = st.slider("Select start and end time", 0.0, np.float(durationInSeconds), value = [0.0,np.float(durationInSeconds)],
+                              step=0.1, key="time_slider", disabled=st.session_state.disabled)
         
-        # st.text_input(
-        #     "User Input",
-        #     key="user_widget",
-        #     label_visibility="hidden",
-        #     placeholder="Enter Prompt",
-        #     on_change=clear_text
-        # ) 
-        #user_input = st.session_state.user_input
-        # print('user',user_input)
 
         st.button("Reset Parameters",on_click=reset)
 
@@ -238,41 +229,4 @@ with col2:
                                 data=open(str(start) +"to"+ str(end) +"_"+collage+".jpg", 'rb').read(),
                                 file_name=str(start) +"to"+ str(end) +"_"+collage+'.jpg', 
                                 mime='image/jpg')
-                
-
-#should be functioning like GPT, where model and user trades answers
-#source: https://docs.streamlit.io/knowledge-base/tutorials/build-conversational-apps
-        
-# if "messages" not in st.session_state:
-#     st.session_state.messages = []
-
-#chatgpt-like container => to finish with real models
-# with col2:
-#     with st.container(border=True): #empty box containing chat
-        
-#         if (uploaded_file != None): 
-            
-#             # only if user inputs something, show chatting box
-#             if (st.session_state.user_input != ""):
-
-#                 # Display chat messages from history on app rerun
-#                 for message in st.session_state.messages:
-#                     print(message)
-#                     with st.chat_message(message["role"]):
-#                         st.markdown(message["content"])
-
-#                 user = st.chat_message("user")
-#                 model = st.chat_message("assistant")
-#                 user.markdown(st.session_state.user_input)
-            
-#                 # Add user message to chat history
-#                 st.session_state.messages.append({"role": "user", "content": st.session_state.user_input})
-
-#                 #assistant response
-#                 response = f"Echo: {st.session_state.user_input}"
-
-#                 # Display assistant response in chat message container
-#                 model.markdown(response)
-#                 # Add assistant response to chat history
-#                 st.session_state.messages.append({"role": "assistant", "content": response})
                 

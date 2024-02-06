@@ -58,34 +58,6 @@ def reset():
     st.session_state['frame_slider'] = 2
     st.session_state["collage_slider"] += 1
     st.session_state['time_slider'] = (0,int(durationInSeconds))
-    # st.session_state.file_uploader += 1 
-    # st.rerun()
-
-# previous code to extract images from video (by sampling rate)  
-#Source: https://stackoverflow.com/questions/33311153/python-extracting-and-saving-video-frames
-# def extractIndividual(frameRate):
-#     frameRate = (end-start) // (frames - 1) #because a frame is already captured at 0 ms
-#     def getFrame(sec):
-#         #set current position of the video, its measuring unit is milliseconds
-#         vidcap.set(cv2.CAP_PROP_POS_MSEC,sec*1000) 
-#         #frame is an image array vector captured based on the default frames per second defined explicitly or implicitly
-#         hasFrames,image = vidcap.read()
-#         if hasFrames and (sec <= end):
-#             # Saves frames as JPG file to corresponding folder
-#             cv2.imwrite(os.path.join(dirname,"image"+str(count)+".jpg"), image)
-#         return hasFrames
-
-#     count = 1
-#     sec = start
-#     dirname = str(frames) + "_individual_frames"
-#     os.mkdir(dirname)
-#     # os.path.join(dirname, face_file_name)
-#     success = getFrame(sec)
-#     while success:
-#         count = count + 1
-#         sec = sec + frameRate
-#         # sec = round(sec, 2)
-#         success = getFrame(sec)
 
 # code to extract individual images from video
 def extractIndividual(frames):
@@ -227,6 +199,5 @@ with col2:
                 extractCollage(collage)
                 st.download_button(":violet[Download Image]",
                                 data=open(str(start) +"to"+ str(end) +"_"+collage+".jpg", 'rb').read(),
-                                file_name=str(start) +"to"+ str(end) +"_"+collage+'.jpg', 
+                                file_name="_"+collage+'.jpg', 
                                 mime='image/jpg')
-                

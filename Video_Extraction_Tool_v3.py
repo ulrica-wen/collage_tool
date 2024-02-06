@@ -53,10 +53,10 @@ if "file_uploader" not in st.session_state:
 def reset():
     st.session_state.user_input = ""
     st.session_state.user_widget = ""
-    st.session_state.messages = []
-    st.session_state.disabled = False
     st.session_state['frame_slider'] = 2
     st.session_state["collage_slider"] += 1
+    st.session_state.messages = []
+    st.session_state.disabled = False
     st.session_state['time_slider'] = (0,int(durationInSeconds))
     # st.session_state.file_uploader += 1 
     # st.rerun()
@@ -110,8 +110,8 @@ def extractIndividual(frames):
 # OR concatenate those images into 1 image
 def extractCollage(collage):
     # width, height = 300, 400
-    frames_list = []
     images = []
+    frames_list = []
     sec = start
     # get the frame count
     # frame_count=int(vidcap.get(cv2.CAP_PROP_FRAME_COUNT))
